@@ -20,6 +20,7 @@ function show(){
         }
       }
   });
+  console.log(1);
 }
 
 let code = (function(){
@@ -44,7 +45,12 @@ $('#sendmess').click(function() {
     var unick = $('#urnick').val();
     if (unick == '') { unick = 'Anonymous'; }
 
-    var aesmessage = '<text id="anonnick">' + unick +': </text>'+ $('#urtext').val();
+    var uimg = $('#urimage').val();
+    if (uimg != '') { 
+      uimg = '<img src="' + uimg + '" width="16%">'; 
+    }
+
+    var aesmessage = '<text id="anonnick">' + unick +': </text>' + uimg + $('#urtext').val();
     aesmessage = code.encryptMessage( aesmessage , passhash )
     message = code.decryptMessage( aesmessage , passhash );
     passhash = sha256( passhash );
@@ -58,6 +64,7 @@ $('#sendmess').click(function() {
 
     show();
     $('#urtext').val('');
+    $('#urimage').val('');
 });
 
 //$(yourcolor).css({"backgroundColor": local});
@@ -79,6 +86,24 @@ $(function() {
     
   });
 });
+
+function clearbox(){  
+  $('#urtext').val('');
+  $('#urimage').val('');
+}
+
+document.onkeydown = function(e) {
+  e = e || window.event;
+  if (e.shiftKey && e.keyCode == 13) {
+    document.getElementById("sendmess").click();
+    setTimeout(clearbox , 100);
+  }
+  if (e.keyCode == 13) {
+    var localtext = $('#urtext').val() + '<br>';
+    $('#urtext').val(localtext);
+  }
+  return true;
+}
       
 setInterval( show, 2000);
 show();

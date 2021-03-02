@@ -25,7 +25,11 @@ th{
 }
 
 #sendmess{
-    margin-left: 140px;
+    margin-left:130px;
+}
+
+#delmes{
+    margin-left: 50px;
 }
 
 textarea{
@@ -43,4 +47,67 @@ a{
     text-decoration: none;
     color: #8e8fe7;
     text-decoration: underline;
+}
+
+#generatekey{
+    position: absolute;
+    background-color: #1b1727;
+    border: 1px solid #211d31;
+    width: 150px;
+    right:0px;
+    top:0px;
+    z-index:10;
+}
+
+#urkey{
+    position: absolute;
+    background-color: #1b1727;
+    border: 1px solid #211d31;
+    width: 150px;
+    right:0px;
+    top:0px;
+    word-break: break-all;
+}
+
+#hisnumb{
+    margin-bottom: 10px;
+}
+
+#next{
+    margin-top: 20px;
+}
+
+
+button{
+    background-color: #312E40;
+    color: #7aaad8;
+    border: 1px solid #403b57;
+    outline: none; 
+}
+
+input{
+    background-color: #4c4766;
+    color: #7aaad8;
+    border: 2px solid #403b57;
+    outline: none; 
+}
+
+
+input:hover{
+    background-color: #3e3958;
+    color: #7aaad8;
+    border: 2px solid #322d46;
+    outline: none; 
+}
+
+.deleted{
+    display: none;
+}
+
+img{
+    opacity: 0.05;
+}
+
+img:hover{
+    opacity: 1;
 }
