@@ -20,7 +20,7 @@ function show(){
         }
       }
   });
-  console.log(1);
+  //console.log(1);
 }
 
 let code = (function(){
@@ -50,7 +50,7 @@ $('#sendmess').click(function() {
       uimg = '<img src="' + uimg + '" width="16%">'; 
     }
 
-    var aesmessage = '<text id="anonnick">' + unick +': </text>' + uimg + $('#urtext').val();
+    var aesmessage = '<text class="anonnick">' + unick +': </text>' + uimg + '<text class="anontxt">' + $('#urtext').val() + '</text>';
     aesmessage = code.encryptMessage( aesmessage , passhash )
     message = code.decryptMessage( aesmessage , passhash );
     passhash = sha256( passhash );
@@ -76,11 +76,15 @@ $(function() {
 
     var imgstyle = document.querySelector(elid);
 
-    if ( imgstyle.style.width != '100%' ) {
-        imgstyle.style.width = '100%';
-    }
-    else {
-        imgstyle.style.width = '16%';
+    try{
+      if ( imgstyle.style.width != '100%' ) {
+          imgstyle.style.width = '100%';
+      }
+      else {
+          imgstyle.style.width = '16%';
+      }
+    } catch{
+    
     }
 
     

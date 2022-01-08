@@ -5,19 +5,19 @@ $changepass = $_POST['uchange'];
 $messagessumm = $_POST['summessages'];
 
 //text
-$showsqltext = new mysqli ("localhost", "root", "", "messages");
+$showsqltext = new mysqli ("localhost", "root", "root", "messages");
 $showsqltext->query("SET NAMES 'utf8'");
 
 $sqllisttext = $showsqltext->query("SELECT `Aes` FROM `list`");
 
 //list sha
-$showsqlsha = new mysqli ("localhost", "root", "", "messages");
+$showsqlsha = new mysqli ("localhost", "root", "root", "messages");
 $showsqlsha->query("SET NAMES 'utf8'");
 
 $sqllistsha = $showsqlsha->query("SELECT `Sha` FROM `list`");
 
 //list number
-$showsqlnumber = new mysqli ("localhost", "root", "", "messages");
+$showsqlnumber = new mysqli ("localhost", "root", "root", "messages");
 $showsqlnumber->query("SET NAMES 'utf8'");
 
 $sqllisttextnumber = $showsqlnumber->query("SELECT `Number` FROM `list`");
@@ -40,22 +40,26 @@ while (($rowtextnumber = mysqli_fetch_row($sqllisttextnumber)) && ($rowtext = my
                 if ($mesi > $messagessumm || $newmesi > $messagessumm){
                     $output = '<div class="anonmes" id="messn';
                     $output .= $locallisttextnumber;
-                    $output .= '">№';
+                    $output .= '"><div class="anonident">№';
                     $output .= $locallisttextnumber;
                     $output .= ': <script>';
                     $output .= 'var passhash = sha256( $("#urpass").val() );';
                     $output .= 'var dbmessage = code.decryptMessage( "';
                     $output .= $locallisttext;
                     $output .= '", passhash );';
-                    $output .= '$("#messn';
+                    $output .= 'document.getElementById("messn';
                     $output .= $locallisttextnumber;
-                    $output .= '").append(dbmessage);';
+                    $output .= '").children[0].insertAdjacentHTML("beforeEnd",';
+
+                    $output .='dbmessage';
+                    $output .=');';
+                    
                     $output .= 'changepas = "';
                     $output .= $locallistsha;
                     $output .= '"; $("#nevidimka").html("';
                     $output .= $newmesi;
                     $output .='")';
-                    $output .= '</script></div> <br>';
+                    $output .= '</script></div> </div><br>';
 
                 
                     echo $output;

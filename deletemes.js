@@ -19,3 +19,11 @@ function delfmes(){
     });
     console.log(MesNumbers);
 }
+
+function ShowPassJs(){
+    if(document.getElementById("urpass").type == "text"){
+        document.getElementById("urpass").type = "password";
+    } else {
+        document.getElementById("urpass").type = "text";
+    }
+}

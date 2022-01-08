@@ -2903,237 +2903,195 @@
   })(this);
 
 
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+var difficulity = 100000000000;
 var index = 0;
+var mynick = "0";
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+ 
+
 function rando(){
-var array = new Uint32Array(10);
-window.crypto.getRandomValues(array);
-return(array[1]);
+  var array = new Uint32Array(10);
+  window.crypto.getRandomValues(array);
+  return(array[0] + array[1]*1000000);
 }
 
-var ch = 0;
-var t = 0;
-var numforme = 0;
-var aaa = 0;
-aaa = aaa + ": ";
-var addnick = "0";
-addnick = rando() + rando();
-
-function wait1(){
-  var leneel = document.getElementsByClassName("anonmes").length;
-  for (index = 0; index < leneel; index++) {
-
-    if( document.getElementsByClassName("anonmes")[index].children[1].textContent == aaa) {
-      aaa = aaa + ": ";
-      numforme = document.getElementsByClassName("anonmes")[index].lastChild.textContent;
-      console.log(aaa);
-      aaa = aaa + ": ";
-      console.log(numforme);
-      genk();
-      clearInterval(urint); 
+function findNick(a){
+  a += ": ";
+  numnicks = document.getElementsByClassName("anonnick").length;
+  d = false;
+  for(i = 0; i < numnicks; i++){
+    if(document.getElementsByClassName("anonnick")[i].textContent == a){
+      d = true;
     }
   }
+  return d;
 }
 
-function genk(){
-  
-document.getElementById("generatekey").style.display = "none";
-t = t + 1;
-
-if(ch != 1 && ch != 2) { ch = Number(prompt("You 1 or 2?")) }
-if(ch != 0){
-
-var devdiv = 100000;
-
-if(ch == 1){
-if (t == 1){
-console.log(1);
-var a1 = Math.floor(rando()/devdiv) + 1;
-var g1 = Math.floor(rando()/devdiv) + 1;
-a = new BigNumber(a1);
-g = new BigNumber(g1); 
-
-document.getElementById("urnick").value = ch;
-document.getElementById("urtext").value = g1;
-document.getElementById("sendmess").click();
-aaa = ch + 1;
-aaa = aaa + ": ";
-var urint = setInterval(wait1, 200);
-}
-if (t == 2){
-  
-
-//var p1 = Number(prompt("Полученное число")); //]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]1
-var p1 = Number(numforme);
-p = new BigNumber(p1); 
-genk();
-}
-if(t == 3){
-//------------------------------------
-aa = new BigNumber(1);
-aa = g.pow(a);
-aa = aa.modulo(p);
-document.getElementById("urnick").value = ch + 10;
-document.getElementById("urtext").value = aa;
-document.getElementById("sendmess").click();
-aaa = ch + 20 + 1;
-aaa = aaa + ": ";
-var urint = setInterval(wait1, 200);
-}
-if (t == 4){
-  
-
-bb = new BigNumber(Number(numforme)); //]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-
-key = new BigNumber(1);
-key = bb.pow(a);
-key = key.modulo(p);
-
-finkey = key.toString();
-
-console.log(key.toString());
-key = key.plus(bb.pow(a));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(bb.pow(a));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(bb.pow(a));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(bb.pow(a));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(bb.pow(a));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(bb.pow(a));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-
-console.log(finkey.toString());
-document.getElementById("somekey").innerText = finkey.toString();
-document.getElementById("urpass").value = finkey.toString();
-ch = 0;
-}
-}
-else {
-if (t == 1){
-console.log(2);
-var b1 = Math.floor(rando()/devdiv) + 1;
-var p1 = Math.floor(rando()/devdiv) + 1;
-b = new BigNumber(b1);
-p = new BigNumber(p1); 
-
-document.getElementById("urnick").value = ch;
-document.getElementById("urtext").value = p1;
-document.getElementById("sendmess").click();
-aaa = ch - 1;
-aaa = aaa + ": ";
-var urint = setInterval(wait1, 200);
-}
-if(t == 2){
-  
-
-//var g1 = Number(prompt("Полученное число")); //]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]1
-var g1 = Number(numforme);
-g = new BigNumber(g1); 
-genk();
-}
-if(t == 3){
-//--------------------------------------
-bb = new BigNumber(1);
-bb = g.pow(b);
-bb = bb.modulo(p);
-
-document.getElementById("urnick").value = ch + 20;
-document.getElementById("urtext").value = bb;
-document.getElementById("sendmess").click();
-aaa = ch + 10 - 1;
-aaa = aaa + ": ";
-var urint = setInterval(wait1, 200);
-}
-if(t == 4){
-  
-aa = new BigNumber(Number(numforme)); //]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-
-key = new BigNumber(1);
-key = aa.pow(b);
-key = key.modulo(p);
-
-finkey = key.toString();
-
-console.log(key.toString());
-key = key.plus(aa.pow(b));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(aa.pow(b));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(aa.pow(b));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(aa.pow(b));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(aa.pow(b));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-console.log(key.toString());
-key = key.plus(aa.pow(b));
-key = key.modulo(p);
-console.log(key.toString());
-
-finkey += key;
-
-
-console.log(finkey.toString());
-document.getElementById("somekey").innerText = finkey.toString();
-document.getElementById("urpass").value = finkey.toString();
-ch = 0;
-}
+function newNickname(){
+  nn = rando();
+  document.getElementById("urtext").value = "nnick" + nn;
+  document.getElementById("sendmess").click();
+  document.getElementById("urnick").value = nn;
+  mynick = nn;
 }
 
+function getFriendNick(a,b){
+  aa = a;
+  a += ": ";
+  rnick = "0";
+
+    numnicks = document.getElementsByClassName("anonnick").length;
+      for(i = 0; i < numnicks; i++){
+        chnick = document.getElementsByClassName("anonnick")[i].textContent;
+
+        if(chnick == a){
+          chtxt = document.getElementsByClassName("anontxt")[i].textContent;
+          if(chtxt.includes(b)){
+            rnick = chtxt.replace(b, "");
+          }
+        }
+      }
+  return rnick;
+    
 }
+
+function sendPublic(a,b){
+  document.getElementById("urtext").value = b + a;
+  document.getElementById("sendmess").click();
+}
+
+async function genk(){
+  var friendNick = prompt('Ник - с кем проводить обмен:');
+  var FiOTo = "A1";
+  var FriendC = "A2";
+
+  if(findNick(friendNick)){
+    newNickname();
+
+    friendNick1 = "0";
+    while(friendNick1 == "0"){
+      friendNick1 = getFriendNick(friendNick,"nnick");
+      await sleep(200);
+    }
+
+    friendNick = friendNick1;
+    console.log(friendNick);
+    if(mynick > friendNick){
+      FiOTo = "A";
+      FriendC = "B";
+    } else {
+      FiOTo = "B";
+      FriendC = "A";
+    }
+
+    publicG = new BigNumber(parseInt(rando()/difficulity));
+    privateMyA = new BigNumber(parseInt(rando()/difficulity));
+
+    sendPublic(publicG.c.toString().replace(",",""),FiOTo);
+
+    friendNick1 = "0";
+    while(friendNick1 == "0"){
+      friendNick1 = getFriendNick(friendNick,FriendC);
+      await sleep(200);
+    }
+    console.log(friendNick1);
+    publicHimG = friendNick1;
+
+
+
+    AFirst = new BigNumber(1);
+    if(FiOTo == "A"){
+      AFirst = publicG.pow(privateMyA);
+      AFirst = AFirst.mod(publicHimG);
+      FiOTo += "B";
+      FriendC += "B";
+      sendPublic(AFirst.c.toString().replace(",",""),FiOTo);
+    } 
+
+    AFirst = new BigNumber(1);
+    if(FiOTo == "B"){
+      bphg = new BigNumber(publicHimG);
+      AFirst = bphg.pow(privateMyA);
+      AFirst = AFirst.mod(publicG);
+      FiOTo += "B";
+      FriendC += "B";
+      sendPublic(AFirst.c.toString().replace(",",""),FiOTo);
+    }
+//---------------------------------------------------------
+
+    friendNick1 = "_";
+    while(friendNick1 == "0" || (friendNick1 == "_")){
+      friendNick1 = getFriendNick(friendNick,FriendC);
+      await sleep(200);
+    }
+    console.log(friendNick1);
+    publicAHim = new BigNumber(friendNick1);
+
+
+    SecK = new BigNumber(1);
+    if(FiOTo == "BB"){
+      SecK = publicAHim.pow(privateMyA);
+      SecK = SecK.mod(publicG);
+    }
+
+    if(FiOTo == "AB"){
+      SecK = publicAHim.pow(privateMyA);
+      SecK = SecK.mod(publicHimG);
+    }
+
+    console.log(SecK.c.toString().replace(",",""));
+    document.getElementById("urpass").value = SecK.c.toString().replace(",","");
+
+    if(mynick > friendNick){
+      gg = rando();
+      document.getElementById("urtext").value = "NPas" + gg;
+      document.getElementById("sendmess").click();
+      document.getElementById("urnick").value = "";
+      document.getElementById("urpass").value = gg;
+    } else {
+      friendNick1 = "_";
+      while(friendNick1 == "0" || (friendNick1 == "_")){
+        friendNick1 = getFriendNick(friendNick,"NPas");
+        await sleep(200);
+      }
+      console.log(friendNick1);
+      document.getElementById("delmes").click();
+      document.getElementById("urpass").value = friendNick1;
+      document.getElementById("urnick").value = "";
+    }
+
+  } else {
+    alert("Такого ника нет!");
+  }
+
+  /*
+  document.getElementById("generatekey").style.display = "none";
+
+  a = new BigNumber(a1);
+  g = new BigNumber(g1); 
+
+  document.getElementById("urnick").value = ch;
+  document.getElementById("urtext").value = g1;
+  document.getElementById("sendmess").click();
+*/
 }

@@ -33,12 +33,21 @@
                 </th><th>
                 <text>Nick: </text><br>
                 <textarea rows="1" cols="20"  name="unick" id="urnick" autocomplete="off"></textarea>
-                </th>
+            </th>
             </tr>
-    </table>
-    <input id="delmes" type="button" name="delmes" value="DelMes" onclick="delfmes()">
-    <input id="sendmess" type="button" name="done" value="Send">
+            
+            <tr id="thebuttons">
+            <th>
+            <input id="delmes" type="button" name="delmes" value="DelMes" onclick="delfmes()">
+            <input id="showpas" type="button" name="showpas" value="ShowPass" onclick="ShowPassJs()">
+            </th>
+            <th>
+            <input id="sendmess" type="button" name="done" value="Send">
+            </th>
+            </tr>
+            </table>
 </div>
+
 
 <div id="generatekey">
 <text>Secret Key. </text>

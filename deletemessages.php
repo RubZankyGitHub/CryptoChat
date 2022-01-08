@@ -3,7 +3,7 @@
     $arrmes = explode("P", $nmess);
 
     //list number
-    $showsqlnumber = new mysqli ("localhost", "root", "", "messages");
+    $showsqlnumber = new mysqli ("localhost", "root", "root", "messages");
     $showsqlnumber->query("SET NAMES 'utf8'");
     
     $sqllisttextnumber = $showsqlnumber->query("SELECT `Number` FROM `list`");
@@ -25,7 +25,7 @@
                     if ($locallisttextnumber == $arrmes[$i]){
 
                         
-                        $mysqli = new mysqli ("localhost", "root", "", "messages");
+                        $mysqli = new mysqli ("localhost", "root", "root", "messages");
                         $mysqli->query("SET NAMES 'utf8'");
                         //UPDATE `messages`.`list` SET `Aes` = '' WHERE `list`.`Number` =1;
 

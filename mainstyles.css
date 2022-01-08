@@ -25,11 +25,11 @@ th{
 }
 
 #sendmess{
-    margin-left:130px;
+    margin-left:0px;
 }
 
 #delmes{
-    margin-left: 50px;
+    margin-left: 0px;
 }
 
 textarea{
@@ -39,7 +39,7 @@ textarea{
     outline: none; 
 }
 
-#anonnick{
+.anonnick{
     color: #7779e7;
 }
 
@@ -76,7 +76,6 @@ a{
 #next{
     margin-top: 20px;
 }
-
 
 button{
     background-color: #312E40;
